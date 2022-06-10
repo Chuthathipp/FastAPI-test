@@ -6,7 +6,8 @@ app = FastAPI()
 
 async def root(info : Request):
     req_info = await info.json()
-    json_string = json.dumps(req_info)
-    print(json_string)
-    
     return {"Response": "OK!"}
+
+@app.get("/")
+async def root():
+    return {"Message": "OK!"}
